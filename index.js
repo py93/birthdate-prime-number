@@ -1,13 +1,13 @@
-var readLineSync = require('readline-sync');
-var chalk = require('chalk');
+const readLineSync = require('readline-sync');
+const chalk = require('chalk');
 
-var userName = readLineSync.question(chalk.green("Please enter your name: "));
+const userName = readLineSync.question(chalk.green("Please enter your name: "));
 
 console.log(chalk.blue("\nWelcome, ", userName));
 
-var userDOB = readLineSync.question(chalk.yellow.underline("\nPlease enter your DOB in format DD/MM: "));
+const userDOB = readLineSync.question(chalk.yellow.underline("\nPlease enter your DOB in format DD/MM: "));
 
-var number = "";
+let number = "";
 function validateDate(userDOB)
 {
   if( validateDateFormat(userDOB) && validateDateRange(userDOB))
@@ -22,8 +22,8 @@ function validateDate(userDOB)
 
 function validateDateFormat(userDOB)
 {
-  var userDD = userDOB.substring(0,2);
-  var userMM = userDOB.substring(3,5);
+  const userDD = userDOB.substring(0,2);
+  const userMM = userDOB.substring(3,5);
   number = parseInt((userDD + userMM));
   
   if (isNaN(userDD) || isNaN(userMM) || isNaN(number))
@@ -35,8 +35,8 @@ function validateDateFormat(userDOB)
 
 function validateDateRange(userDOB)
 {
-  var userDD = parseInt(userDOB.substring(0,2));
-  var userMM = parseInt(userDOB.substring(3,5));
+  const userDD = parseInt(userDOB.substring(0,2));
+  const userMM = parseInt(userDOB.substring(3,5));
 
   if((userDD>31) || (userMM>12))
   {
@@ -61,7 +61,7 @@ function checkPrimeNumber(number)
   if (number < 4) {
     return true;
   } else if (number > 3) {
-    for (var i = 2; i < number; i++) {
+    for (let i = 2; i < number; i++) {
       if (number % i === 0) {
         return false;
       }
